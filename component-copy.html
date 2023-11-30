@@ -1,0 +1,23 @@
+<script>
+    let copyButton = document.getElementById("copy-button")
+    const codeSnippet = JSON.parse(document.querySelector(".component-snippet").textContent)
+
+    document.addEventListener("copy", (event) => {
+        event.clipboardData.setData("application/json", JSON.stringify(codeSnippet))
+        event.preventDefault()
+    });
+
+    copyButton.onclick = function () {
+        document.execCommand("copy")
+        copyButton.innerText = "Copied to clipboard"
+        changeButtonText();
+    }
+
+    function changeButtonText() {
+        setTimeout(() => {
+            copyButton.innerText = "Copy this element"
+        }, 3000);
+    }
+</script>
+
+

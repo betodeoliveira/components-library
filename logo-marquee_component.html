@@ -1,1 +1,16 @@
+<!-- Logo Marquee -->
+<script>
+    $(".logo-marquee_component").each(function () {
+        let marqueeList = $(this).find(".logo-marquee_list");
+        let marqueeListWrapper = $(this).find(".logo-marquee_wrapper");
+        $(marqueeList).clone().appendTo(marqueeListWrapper);
+        $(marqueeList).clone().appendTo(marqueeListWrapper);
 
+        let logosAmount = $(this).find(".logo-marquee_item").length;
+        let baseDuration = parseFloat((this).attr("logo-marquee-duration"));
+        let duration = baseDuration * (logosAmount / baseDuration);
+
+        let logosMarqueeTimeline = gsap.timeline({ repeat: -1 });
+        logosMarqueeTimeline.to(".logos-marquee_list", { x: "-100%", duration: duration, ease: "none" });
+    });
+</script>
