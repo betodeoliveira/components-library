@@ -2,12 +2,13 @@
 <script>
     $(".logo-marquee_component").each(function () {
         let duration = parseFloat($(this).attr("logo-marquee-duration"));
+        let direction = $(this).attr("logo-marquee-direction").toString();
         let marqueeList = $(this).find(".logo-marquee_list");
         let marqueeListWrapper = $(this).find(".logo-marquee_wrapper");
         $(marqueeList).clone().appendTo(marqueeListWrapper);
         $(marqueeList).clone().appendTo(marqueeListWrapper);
         // Create the GSAP timeline
         let logosMarqueeTimeline = gsap.timeline({ repeat: -1 });
-        logosMarqueeTimeline.to(".logo-marquee_list", { x: "-100%", duration: duration, ease: "none" });
+        logosMarqueeTimeline.to($(this).find(".logo-marquee_list"), { x: direction, duration: duration, ease: "none" });
     });
 </script>
