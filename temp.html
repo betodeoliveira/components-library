@@ -1,0 +1,12 @@
+<script>
+    $(".trigger").each(function (index) {
+        ScrollTrigger.create({
+            trigger: $(this),
+            start: "top center",
+            end: "+=0",
+            markers: false,
+            onEnter: () => $(".tab-link").eq(index + 1).click(),
+            onEnterBack: () => $(".tab-link").eq(index).click(),
+        });
+    });
+</script>
